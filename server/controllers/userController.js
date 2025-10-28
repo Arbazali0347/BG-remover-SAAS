@@ -6,11 +6,13 @@ import userModel from "../models/userModel.js";
 const clerkWebhooks = async (req, res) => {
     try {
         const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
-        await whook.verify(JSON.stringify(req.body),{
-            "svix-id": req.headers["svix.id"],
-            "svix.timestamp": req.headers["svix.timestamp"],
-            "svix.signature": req.headers["svix.signature"]
-        });
+        await whook.verify(JSON.stringify(req.body),
+            {
+                "svix-id": req.headers["svix-id"],
+                "svix-timestamp": req.headers["svix-timestamp"],
+                "svix-signature": req.headers["svix-signature"]
+            }
+        );
 
         const { data, type } = req.body;
 
@@ -32,16 +34,16 @@ const clerkWebhooks = async (req, res) => {
                     email: data.email_addresses[0].email_address,
                     firstName: data.first_name,
                     lastName: data.last_name,
-                    photo: data._image_url,
+                    photo: data.image_url,
                 }
 
-                await userModel.findOneAndUpdate({clerkId:data.id},userData);
+                await userModel.findOneAndUpdate({ clerkId: data.id }, userData);
                 res.json({});
                 break;
             }
 
-            case "user.deleted":{
-                await userModel.findOneAndDelete({clerkId:data.id})
+            case "user.deleted": {
+                await userModel.findOneAndDelete({ clerkId: data.id })
                 res.json({});
                 break;
             }
@@ -55,4 +57,4 @@ const clerkWebhooks = async (req, res) => {
     }
 }
 
-export {clerkWebhooks}
+export { clerkWebhooks }
