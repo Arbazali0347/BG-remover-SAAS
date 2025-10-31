@@ -6,6 +6,6 @@ import authUser from "../middlewares/auth.js";
 const userRouter = express.Router();
 
 userRouter.post("/webhooks", clerkWebhooks);
-userRouter.post("/credits", authUser, userCredits);
+userRouter.get("/credits", authUser, userCredits);
 
 export default userRouter;

@@ -11,21 +11,21 @@ const Steps = () => {
                     <img src={assets.upload_icon} alt="" />
                     <div>
                         <p className="text-xl font-medium">Upload image</p>
-                        <p className="text-sm text-neutral-500 mt-1">This is a demo text, will replace it later. <br /> This is a demo..</p>
+                        <p className="text-sm text-neutral-500 mt-1">Select a photo from your device. <br /> JPG, PNG & WEBP supported.</p>
                     </div>
                 </div>
                 <div className='border-none flex items-start gap-4 bg-white border drop-shadow-md p-7 pb-10 rounded hover:scale-105 transition-all duration-500'>
                     <img src={assets.remove_bg_icon} alt="" />
                     <div>
                         <p className="text-xl font-medium">Remove image</p>
-                        <p className="text-sm text-neutral-500 mt-1">This is a demo text, will replace it later. <br /> This is a demo..</p>
+                        <p className="text-sm text-neutral-500 mt-1">Our AI detects the subject and removes <br /> the background automatically.</p>
                     </div>
                 </div>
                 <div className='border-none flex items-start gap-4 bg-white border drop-shadow-md p-7 pb-10 rounded hover:scale-105 transition-all duration-500'>
                     <img src={assets.download_icon} alt="" />
                     <div>
                         <p className="text-xl font-medium">Download image</p>
-                        <p className="text-sm text-neutral-500 mt-1">This is a demo text, will replace it later. <br /> This is a demo..</p>
+                        <p className="text-sm text-neutral-500 mt-1">Save your clean image with a transparent <br /> or white background.</p>
                     </div>
                 </div>
             </div>
